@@ -6,9 +6,6 @@ matData = scipy.io.loadmat('rat3_all.mat')
 matrixA = matData['EEGandEMG']
 matrixB = matData['labels'] 
 
-L = matrixA.shape
-print(L)
-
 A = matrixA
 B = matrixB
 A = A.T
@@ -23,17 +20,19 @@ model = Sequential()
 
 from keras.layers import Dense
 from keras import losses 
+from keras import optimizers
 
 model.add(Dense(units=64, activation='relu', input_dim=4000))
+model.add(Dense(45))
 model.add(Dense(units=6, activation='softmax'))
 
-model.compile(loss='categorical_crossentropy',
-              optimizer='sgd',
-              metrics=['accuracy'])
-model.compile(loss=keras.losses.categorical_crossentropy,
-              optimizer=keras.optimizers.SGD(lr=0.01, momentum=0.9, nesterov=True))
-              
-model.fit(x_train, y_train, epochs=7, batch_size=32)
+sgd = optimizers.SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 
-loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)
+model.compile(loss=losses.mean_squared_error, optimizer=sgd, metrics=['accuracy'])
+
+model.fit(x_train, y_train, epochs=7, batch_size=1)
+
+
+loss_and_metrics = model.evaluate(x_test, y_test, batch_size=1)
+print(loss_and_metrics)
 

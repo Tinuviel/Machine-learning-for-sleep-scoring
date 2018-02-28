@@ -1,0 +1,17 @@
+import scipy.io
+import random 
+import numpy as np
+
+matData = scipy.io.loadmat('rat3_all.mat')
+matrixA = matData['EEGandEMG']
+matrixB = matData['labels'] 
+A = matrixA.T
+B = matrixB.T
+
+antaltest = 4000
+antaltrain = 15000 #man skulle kunna göra något snyggt med len(A) här typ
+
+x_test=A[np.random.randint(A.shape[0], size=antaltest), :]
+y_test=B[np.random.randint(B.shape[0], size=antaltest), :]
+x_train = A[np.random.randint(A.shape[0], size=antaltrain), :]
+y_train = B[np.random.randint(A.shape[0], size=antaltrain), :]

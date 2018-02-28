@@ -15,3 +15,5 @@ x_test=A[np.random.randint(A.shape[0], size=antaltest), :]
 y_test=B[np.random.randint(B.shape[0], size=antaltest), :]
 x_train = A[np.random.randint(A.shape[0], size=antaltrain), :]
 y_train = B[np.random.randint(A.shape[0], size=antaltrain), :]
+
+#samma element lär användas i både train och test, det är lite fult

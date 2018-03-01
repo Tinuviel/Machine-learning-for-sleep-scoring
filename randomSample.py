@@ -1,4 +1,5 @@
 import scipy.io
+import random 
 import numpy as np
 matData = scipy.io.loadmat('rat3_all.mat')
 matrixA = matData['EEGandEMG']

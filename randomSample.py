@@ -9,7 +9,6 @@ x_test = A[train_len:matrixRowSize,:]
 y_test = B[train_len:matrixRowSize,:]
 
 index = [0] * matrixRowSize
-print(len(index))
 for i in range(0, matrixRowSize):
     index[i] = i
 
@@ -21,9 +20,6 @@ for row in range(0, train_len):
     index.remove(index[test])
     matrixRowSize = matrixRowSize-1
 
-print('len ', len(index))
-print(x_test.shape)
-print(x_train.shape)
 for i in range(0, len(index)):
     x_test[i, :] = A[index[i], :]
     y_test[i, :] = B[index[i], :]

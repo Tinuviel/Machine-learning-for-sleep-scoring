@@ -1,3 +1,4 @@
+matrixRowSize = matrixA.shape[1]
 A = matrixA
 B = matrixB
 A = A.T

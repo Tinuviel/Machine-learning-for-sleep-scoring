@@ -11,9 +11,12 @@ B = matrixB.T
 antaltest = 4000
 antaltrain = 15000 #man skulle kunna göra något snyggt med len(A) här typ
 
-x_test=A[np.random.randint(A.shape[0], size=antaltest), :]
-y_test=B[np.random.randint(B.shape[0], size=antaltest), :]
-x_train = A[np.random.randint(A.shape[0], size=antaltrain), :]
-y_train = B[np.random.randint(A.shape[0], size=antaltrain), :]
+testindex = np.random.randint(A.shape[0], size=antaltest)
+trainindex = np.random.randint(A.shape[0], size=antaltrain)
+
+x_test=A[testindex, :]
+y_test=B[testindex, :]
+x_train = A[trainindex, :]
+y_train = B[trainindex, :]
 
 #samma element lär användas i både train och test, det är lite fult

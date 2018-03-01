@@ -1,3 +1,9 @@
+import scipy.io
+import numpy as np
+matData = scipy.io.loadmat('rat3_all.mat')
+matrixA = matData['EEGandEMG']
+matrixB = matData['labels'] 
+matrixRowSize = matrixA.shape[1]
 matrixRowSize = matrixA.shape[1]
 A = matrixA
 B = matrixB

@@ -1,3 +1,4 @@
+#Eventuellt återkomma till detta om vi fouriertransformerar datan
 import keras
 from keras.models import Sequential
 import scipy.io

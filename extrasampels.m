@@ -1,3 +1,6 @@
+%Making extra samples. Goes extreamly slow right now, should optimize by initializing the matrixes first and THEN changing the .mat-file
+%But I already compiled so I'll make that change another day. Maybe we should have larger steps than 1 ms, 
+%since the samples will be very much alike now
 clear all, close all;
 r =  matfile('rat3_all.mat', 'Writable', true);
 eeg = r.EEGandEMG;
@@ -46,7 +49,7 @@ for c = 1:8*4000
 end
 
 
-
+%Examples of continuous samples to make new samples from
 %2799-2800 P
 %3004-3006 P
 %5574-5576 P
@@ -64,15 +67,8 @@ end
 %19654-19657 S
 %19696-19779 S
 
-%eeg = [eeg newSamples];
-%size(eeg)
 
-%size(sleeplabels)
-%for l = 1:4000
- %   sleeplabels(:, l) = sleep;
-%end
-%r.labels = [r.labels sleeplabels];
-%r.EEGandEMG = eeg;
+%Test data to make sure I got the matrix dimensions right
 %test2 = [zeros(4, 4)]
 %test3 = [1,2,3,4;5,6,7,8]
 %test3 = reshape(test3, [8,1])

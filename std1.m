@@ -1,3 +1,6 @@
+%Changes the data to standard deviation 1 and zero-mean
+%Doesn't help, still has to multiply the data to get anything
+
 r =  matfile('rat3_all.mat', 'Writable', true);
 
 eeg = r.EEGandEMG;

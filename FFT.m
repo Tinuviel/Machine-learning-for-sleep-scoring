@@ -1,8 +1,8 @@
-clear all, close all;
-r =  matfile('rat3_all.mat', 'Writable', true);
-eeg = r.EEGandEMG;
-[b, a] = butter(7, 0.3, 'high');
-eeg = filter(b, a, eeg);
-eeg = fft(eeg);
-
-r.EEGandEMG = eeg;
+r =  matfile('rat3_allextraSamp.mat', 'Writable', true);
+EEGandEMG = r.EEGandEMG;
+EEG = EEGandEMG(1:2000, :);
+EMG = EEGandEMG(2001:4000, :);
+fftEEG= fft(EEG);
+fftEMG = fft(EMG);
+fftEEGandEMG = [fftEEG; fftEMG];
+r.fftEEGandEMG = fftEEGandEMG

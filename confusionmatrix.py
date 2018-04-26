@@ -51,18 +51,19 @@ def plot_confusion_matrix(cm, classes,
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
 
-class_names=[0,1,2,3,4]
+class_names=['Wake','Wake A','NREM', 'NREM A','REM']#add REMA if needed
 
 
 
 # Compute confusion matrix
-#cnf_matrix = confusion_matrix(y_test, y_pred)
+
 np.set_printoptions(precision=2)
 cnf_matrix = [[6836, 0, 296, 0, 0],
 [166, 0, 97, 0, 0],
 [470, 0, 3296, 0, 0],
 [589, 0, 3, 0, 0],
 [54, 0, 20, 0, 0]]
+#cnf_matrix = confusion_matrix(y_test, y_pred)
 
 cnf_matrix = np.asarray(cnf_matrix)
 
